@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fkaripis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="en">
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <strong>fkaripis</strong>
+        </div>
+        
+        <div class="nav-buttons">
+            <button id="lang-btn" onclick="toggleLanguage()" title="Αλλαγή Γλώσσας / Change Language">
+                gr
+            </button>
+            <div id="menu-btn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div id="side-menu" class="side-menu">
+        <a href="#" onclick="openWindow('about'); toggleMenu(); return false;"><span class="el">Σχετικά</span><span class="en">About</span></a>
+        <a href="#" onclick="openWindow('skills'); toggleMenu(); return false;"><span class="el">Δεξιότητες</span><span class="en">Skills</span></a>
+        <a href="#" onclick="openWindow('projects'); toggleMenu(); return false;"><span class="el">Projects</span><span class="en">Projects</span></a>
+        <a href="#" onclick="openWindow('education'); toggleMenu(); return false;"><span class="el">Σπουδές</span><span class="en">Education</span></a>
+        <a href="#" onclick="openWindow('hobbies'); toggleMenu(); return false;"><span class="el">Χόμπι</span><span class="en">Hobbies</span></a>
+        
+        <div class="menu-footer">
+            <a href="tel:6996560853" class="phone-link" title="Κάλεσε με!">
+                <i class="fas fa-phone-alt"></i> 6996560853
+            </a>
+            <p>&copy; 2026 fkaripis</p>
+        </div>
+    </div>
+
+    <header id="home">
+        <h1>
+            <span class="el">Φραγκίσκος Καρίπης</span>
+            <span class="en">Frank Karipis</span>
+        </h1>
+        <h2>
+            <span class="el">Φοιτητής Πληροφορικής & Τηλεπικοινωνιών, Π.Θ.</span>
+            <span class="en">CS & Telecommunications Student, UTH</span>
+        </h2>
+        
+        <div class="social-links">
+            <a href="mailto:karipisfrank@gmail.com" title="Email Me"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/frankapa3" target="_blank" title="My GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/fkaripis" target="_blank" title="My LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/frank.krps" target="_blank" title="My Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="about" class="draggable-window">
+            <div class="window-header">
+                <span class="window-title"><span class="el">Σχετικά με εμένα</span><span class="en">About Me</span></span>
+                <button class="close-win-btn" onclick="closeWindow('about')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="window-content">
+                <p>
+                    <span class="el">Είμαι τελειόφοιτος φοιτητής στο τμήμα Πληροφορικής και Τηλεπικοινωνιών του Πανεπιστημίου Θεσσαλίας. Έχω πάθος με το Software Engineering και μου αρέσει να δημιουργώ καθαρό και αποδοτικό κώδικα.</span>
+                    <span class="en">I am a senior student at the Dept. of Computer Science and Telecommunications, University of Thessaly. I am passionate about Software Engineering and I love writing clean, efficient code.</span>
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="draggable-window">
+            <div class="window-header">
+                <span class="window-title"><span class="el">Τεχνικές Δεξιότητες</span><span class="en">Technical Skills</span></span>
+                <button class="close-win-btn" onclick="closeWindow('skills')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="window-content">
+                <ul>
+                    <li><span class="el">Γλώσσες: C++, Python, Java, JavaScript</span><span class="en">Languages: C++, Python, Java, JavaScript</span></li>
+                    <li>Web: HTML5, CSS3, JavaScript</li>
+                    <li><span class="el">Εργαλεία: Git, Linux</span><span class="en">Tools: Git, Linux</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects" class="draggable-window">
+            <div class="window-header">
+                <span class="window-title">Projects</span>
+                <button class="close-win-btn" onclick="closeWindow('projects')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="window-content">
+                <article class="project-card">
+                    <h4>Όνομα Project 1</h4>
+                    <p>
+                        <span class="el">Μια σύντομη περιγραφή του τι κάνει αυτό το project.</span>
+                        <span class="en">A short description of what this project does.</span>
+                    </p>
+                    <p><strong>Tech:</strong> Python, Flask, SQLite</p>
+                    <a href="#"><span class="el">Δες τον κώδικα στο GitHub</span><span class="en">View Code on GitHub</span></a>
+                </article>
+            </div>
+        </section>
+
+        <section id="education" class="draggable-window">
+            <div class="window-header">
+                <span class="window-title"><span class="el">Σπουδές</span><span class="en">Education</span></span>
+                <button class="close-win-btn" onclick="closeWindow('education')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="window-content">
+                <article class="project-card">
+                    <h4><span class="el">Πανεπιστήμιο Θεσσαλίας (Π.Θ.)</span><span class="en">University of Thessaly (UTH)</span></h4>
+                    <p>
+                        <span class="el">Τμήμα Πληροφορικής & Τηλεπικοινωνιών (Λαμία)</span>
+                        <span class="en">Dept. of Computer Science & Telecommunications (Lamia)</span>
+                    </p>
+                    <p><strong>Status:</strong> <span class="el">4ο Έτος / Τελειόφοιτος</span><span class="en">4th Year / Senior</span></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="hobbies" class="draggable-window">
+            <div class="window-header">
+                <span class="window-title"><span class="el">Χόμπι</span><span class="en">Hobbies</span></span>
+                <button class="close-win-btn" onclick="closeWindow('hobbies')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="window-content">
+                <ul>
+                    <li><span class="el">Προγραμματισμός / Ανάπτυξη Λογισμικού</span><span class="en">Programming / Software Development</span></li>
+                    <li><span class="el">Gaming & Τεχνολογία</span><span class="en">Gaming & Technology</span></li>
+                    <li><span class="el">Αθλητισμός / Γυμναστική</span><span class="en">Sports / Fitness</span></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- 1. ΓΛΩΣΣΑ (gr / en) ---
+        function toggleLanguage() {
+            const body = document.body;
+            const btn = document.getElementById('lang-btn');
+            if (body.classList.contains('el')) {
+                body.classList.replace('el', 'en');
+                btn.innerHTML = 'gr'; 
+            } else {
+                body.classList.replace('en', 'el');
+                btn.innerHTML = 'en'; 
+            }
+        }
+
+        // --- 2. ΜΕΝΟΥ (HAMBURGER TO X) ---
+        function toggleMenu() {
+            document.getElementById('side-menu').classList.toggle('active');
+            document.getElementById('menu-btn').classList.toggle('open');
+        }
+
+        // --- 3. NEON ΧΡΩΜΑΤΑ ---
+        const themes = [
+            { accent: '#e50914', hover: '#ff4d4d', bgFade: '#4a0000' }, 
+            { accent: '#3498db', hover: '#5dade2', bgFade: '#001a33' }, 
+            { accent: '#2ecc71', hover: '#27ae60', bgFade: '#003311' }, 
+            { accent: '#1abc9c', hover: '#16a085', bgFade: '#003333' }, 
+            { accent: '#9b59b6', hover: '#8e44ad', bgFade: '#2a0033' }, 
+            { accent: '#e84393', hover: '#fd79a8', bgFade: '#4d0026' }, 
+            { accent: '#ff4500', hover: '#ff6347', bgFade: '#4a1a00' }, 
+            { accent: '#39ff14', hover: '#32cc11', bgFade: '#0a3304' }, 
+            { accent: '#00ffff', hover: '#00cccc', bgFade: '#002b2b' }  
+        ];
+        function setRandomTheme() {
+            const theme = themes[Math.floor(Math.random() * themes.length)];
+            document.documentElement.style.setProperty('--accent-color', theme.accent);
+            document.documentElement.style.setProperty('--accent-hover', theme.hover);
+            document.documentElement.style.setProperty('--bg-end', theme.bgFade);
+        }
+        setRandomTheme();
+
+        // --- 4. ΑΝΟΙΓΜΑ/ΚΛΕΙΣΙΜΟ ΠΑΡΑΘΥΡΩΝ ---
+        let topZIndex = 100;
+        let spawnOffset = 0; 
+
+        function openWindow(id) {
+            const win = document.getElementById(id);
+            if (win.style.display === 'block') {
+                win.style.zIndex = ++topZIndex;
+                return;
+            }
+            win.style.display = 'block'; 
+            win.style.zIndex = ++topZIndex; 
+            
+            win.style.left = `${40 + spawnOffset}px`;
+            win.style.top = `${100 + spawnOffset}px`;
+
+            spawnOffset += 70;
+            if (spawnOffset > 250) spawnOffset = 0; 
+        }
+
+        function closeWindow(id) {
+            document.getElementById(id).style.display = 'none'; 
+        }
+
+        // --- 5. DRAG & DROP ΜΕ ΑΥΣΤΗΡΑ ΟΡΙΑ ---
+        const windows = document.querySelectorAll('.draggable-window');
+        windows.forEach(win => {
+            const header = win.querySelector('.window-header');
+            
+            win.addEventListener('mousedown', () => { win.style.zIndex = ++topZIndex; });
+
+            let isDragging = false, startX, startY, initialX, initialY;
+
+            header.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                initialX = win.offsetLeft;
+                initialY = win.offsetTop;
+                document.body.style.userSelect = 'none'; 
+                document.addEventListener('mousemove', drag);
+                document.addEventListener('mouseup', stopDrag);
+            });
+
+            function drag(e) {
+                if (!isDragging) return;
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                
+                let newX = initialX + dx;
+                let newY = initialY + dy;
+
+                const navbar = document.querySelector('.navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 70; 
+                const padding = 15;
+                
+                const minX = padding;
+                const minY = navbarHeight + padding; 
+                const maxX = window.innerWidth - win.offsetWidth - padding;
+                const maxY = window.innerHeight - win.offsetHeight - padding;
+
+                if (newX < minX) newX = minX;
+                if (newX > maxX) newX = maxX;
+                if (newY < minY) newY = minY;
+                if (newY > maxY) newY = maxY;
+
+                win.style.left = `${newX}px`;
+                win.style.top = `${newY}px`;
+            }
+
+            function stopDrag() {
+                isDragging = false;
+                document.body.style.userSelect = 'auto';
+                document.removeEventListener('mousemove', drag);
+                document.removeEventListener('mouseup', stopDrag);
+            }
+            
+            window.addEventListener('resize', () => {
+                const navbar = document.querySelector('.navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 70; 
+                const padding = 15;
+                
+                let currentX = win.offsetLeft;
+                let currentY = win.offsetTop;
+                const maxX = window.innerWidth - win.offsetWidth - padding;
+                const maxY = window.innerHeight - win.offsetHeight - padding;
+                
+                if (win.style.display === 'block') {
+                    if (currentX > maxX) win.style.left = `${maxX}px`;
+                    if (currentY > maxY) win.style.top = `${maxY}px`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

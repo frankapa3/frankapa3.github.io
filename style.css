@@ -1,0 +1,300 @@
+/* =========================================
+   0. CSS VARIABLES
+   ========================================= */
+:root {
+    --accent-color: #e50914; 
+    --accent-hover: #ff4d4d;
+    --bg-end: #4a0000;
+}
+
+/* =========================================
+   1. ΒΑΣΙΚΕΣ ΡΥΘΜΙΣΕΙΣ
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background: linear-gradient(to bottom right, #000000, var(--bg-end)); 
+    background-attachment: fixed; 
+    min-height: 100vh; 
+    transition: background 0.5s ease;
+    overflow: hidden; /* Κρύβει τις μπάρες scroll της οθόνης για να μοιάζει με Desktop */
+}
+/* =========================================
+   2. ΚΕΝΤΡΙΚΟ HEADER (ΠΙΣΩ ΕΠΙΦΑΝΕΙΑ)
+   ========================================= */
+header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    width: 100%;
+    z-index: 10; /* Πίσω από τα παράθυρα */
+    
+    /* Το νέο Animation που διαρκεί 1.2 δευτερόλεπτα */
+    animation: slideUpEntrance 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; 
+}
+
+/* Η "Μαγεία" της κίνησης: Ανεβαίνει από κάτω προς το κέντρο */
+@keyframes slideUpEntrance {
+    0% {
+        opacity: 0;
+        /* Ξεκινάει 150 pixels πιο κάτω από το κέντρο */
+        transform: translate(-50%, calc(-50% + 150px)); 
+    }
+    100% {
+        opacity: 1;
+        /* "Κλειδώνει" ακριβώς στο κέντρο της οθόνης */
+        transform: translate(-50%, -50%); 
+    }
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 3rem;
+}
+
+header h2 {
+    color: #aaaaaa;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px; 
+}
+
+.social-links a {
+    color: #ffffff; 
+    font-size: 2.5rem; 
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color); 
+    transform: scale(1.15); 
+}
+
+/* =========================================
+   3. OS WINDOWS (ΤΑ ΣΥΡΟΜΕΝΑ ΠΑΡΑΘΥΡΑ)
+   ========================================= */
+.draggable-window {
+    display: none; /* Κρυμμένα από προεπιλογή */
+    position: absolute; /* Για να κινούνται ελεύθερα στην οθόνη */
+    width: 90%;
+    max-width: 500px; /* Μέγεθος παραθύρου */
+    background-color: #121212;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+    overflow: hidden; /* Για να μην βγαίνει το περιεχόμενο έξω από τις γωνίες */
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Ωραίο εφέ εμφάνισης */
+}
+
+/* Η μπάρα του παραθύρου (που πιάνεις για να σύρεις) */
+.window-header {
+    background-color: #1a1a1a;
+    border-bottom: 1px solid var(--accent-color);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move; /* Εικονίδιο χεριού/κίνησης */
+    user-select: none;
+}
+
+.window-title {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Το κουμπί Χ του παραθύρου */
+.close-win-btn {
+    background: transparent;
+    border: none;
+    color: #aaaaaa;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-win-btn:hover {
+    color: #ff4d4d; /* Κόκκινο όταν πας να το κλείσεις */
+}
+
+/* Το εσωτερικό κείμενο των παραθύρων */
+.window-content {
+    padding: 25px;
+    max-height: 60vh; /* Αν έχει πολύ κείμενο, θα κάνει scroll *μέσα* στο παράθυρο */
+    overflow-y: auto;
+}
+
+.window-content ul {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+.window-content article {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+.window-content article h4 {
+    color: var(--accent-hover); 
+    font-size: 1.2rem;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* =========================================
+   4. NAVBAR & ΚΡΥΦΟ ΜΕΝΟΥ
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: transparent; 
+    z-index: 2000;
+    position: relative;
+}
+
+.nav-brand {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Κουμπί Γλώσσας (Στυλ Neon Κουμπιού) */
+#lang-btn {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-transform: lowercase; /* Εξασφαλίζει ότι τα γράμματα θα είναι πάντα πεζά */
+    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#lang-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--accent-hover);
+    box-shadow: 0 0 15px var(--accent-color); 
+}
+
+/* Κουμπί Μενού */
+#menu-btn {
+    width: 30px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2001; 
+}
+
+#menu-btn span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+#menu-btn.open span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); background-color: var(--accent-color); }
+#menu-btn.open span:nth-child(2) { opacity: 0; }
+#menu-btn.open span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); background-color: var(--accent-color); }
+
+/* Το Κρυφό Μενού Στα Δεξιά */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px; 
+    width: 300px;
+    height: 100vh;
+    background-color: #121212;
+    border-left: 2px solid var(--accent-color);
+    box-shadow: -5px 0 20px rgba(0,0,0,0.8);
+    z-index: 1999; /* Κάτω από το Hamburger, πάνω από τα παράθυρα */
+    display: flex;
+    flex-direction: column;
+    padding: 100px 30px 30px 30px;
+    transition: right 0.4s ease-in-out; 
+}
+
+.side-menu.active { right: 0; }
+
+.side-menu a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    transition: color 0.3s, padding-left 0.3s;
+}
+
+.side-menu a:hover {
+    color: var(--accent-color);
+    padding-left: 10px;
+}
+
+/* =========================================
+   5. ΛΟΓΙΚΗ ΓΛΩΣΣΑΣ (ΕΛ / EN)
+   ========================================= */
+body.el .en { display: none; }
+body.en .el { display: none; }
+
+/* =========================================
+   7. MENU FOOTER (ΤΗΛΕΦΩΝΟ & COPYRIGHT)
+   ========================================= */
+.menu-footer {
+    margin-top: auto; /* Το σπρώχνει τέρμα κάτω στο μενού */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.phone-link {
+    display: block;
+    font-size: 1.4rem !important;
+    color: var(--accent-color) !important;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.phone-link:hover {
+    transform: scale(1.1);
+    padding-left: 0 !important; /* Ακυρώνει την κίνηση προς τα δεξιά που έχουν τα άλλα links */
+    text-decoration: none;
+}
+
+.menu-footer p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
